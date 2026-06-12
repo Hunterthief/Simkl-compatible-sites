@@ -379,44 +379,92 @@ const SITES = [
   // Add your anime-only sites here, in your preferred order.
   // Example (replace with your actual sites):
   {
-    name: "Miruro",
+    name: "MKissa",
     tags: ["anime"],
-    url: "https://www.miruro.to/watch/{ANILIST}/{TITLE_SLUG}/episode-{NEXT_E}"
+    url: "https://mkissa.to/search/anime?sortBy=Latest_Update&sortDirection=-1&query={TITLE_PLUS}&tr=sub&cty=ALL"
   },
+  
   {
-    name: "AnimeExample2",
+    name: "AniDB",
     tags: ["anime"],
-    url: "https://example-anime2.com/{ANILIST}/ep/{NEXT_E}"
+    url: "https://anidb.app/browse?q={TITLE}"
   },
-
   /* ── MOVIE SPECIALISTS ─────────────────────────────────── */
-  {
+  /*{
     name: "MovieExample1",
     tags: ["movies"],
     url: "https://example-movies.com/movie/{TITLE_SLUG}/{TMDB}"
-  },
+  },*/
 
   /* ── SERIES SPECIALISTS ────────────────────────────────── */
-  {
+  /*{
     name: "SeriesExample1",
     tags: ["series"],
     url: "https://example-series.com/tv/{TITLE_SLUG}/{TMDB}?s={NEXT_S}&e={NEXT_E}"
-  },
+  },*/
 
   /* ── MOVIES + SERIES (anime not supported) ─────────────── */
-  {
+  /* {
     name: "OnoFlix",
     tags: ["movies", "series"],
     url: "https://onoflix.live/en/watch/{TYPE_SERIES_MOVIE}/{TITLE_SLUG}/{TMDB}?episode={NEXT_E}&source=VidNest"
-  },
+  }, */
 
   /* ── GENERALISTS (all three — shown at bottom always) ──── */
   {
-    name: "GeneralistExample",
+    name: "hexa",
     tags: ["movies", "series", "anime"],
-    url: "https://example-all.com/{TYPE_SERIES_MOVIE}/{TITLE_SLUG}/{TMDB}"
+    url: "https://hexa.su/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
   },
 
+  {
+    name: "Flixtrz",
+    tags: ["movies", "series", "anime"],
+    url: "https://flixtrz.com/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
+  },
+  
+  {
+    name: "Stigstream",
+    tags: ["movies", "series", "anime"],
+    url: "https://stigstream.ru/{TYPE}/watch/{TMDB}/{NEXT_S}/{NEXT_E}"
+  },
+  
+  {
+    name: "NetPlayz",
+    tags: ["movies", "series", "anime"],
+    url: "https://netplayz.live/watch?type={TYPE}&id={TMDB}&play=true&e={NEXT_E}&server=alpha"
+  },
+  
+  {
+    name: "Screenscape",
+    tags: ["movies", "series", "anime"],
+    url: "https://screenscape.me/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
+  },
+  
+  {
+    name: "Watchott",
+    tags: ["movies", "series", "anime"],
+    url: "https://nf.watchott.ru/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
+  },
+  
+  {
+    name: "Nxsha",
+    tags: ["movies", "series", "anime"],
+    url: "https://web.nxsha.app/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
+  },
+  
+  {
+    name: "StreamVaults",
+    tags: ["movies", "series", "anime"],
+    url: "https://streamvaults.ru/{TYPE}/{TMDB}-{TITLE_SLUG}/season/{NEXT_S}/episode/{NEXT_E}"
+  },
+  
+  {
+    name: "m4uhd",
+    tags: ["movies", "series", "anime"],
+    url: "https://ww1.m4uhd.to/search/{TITLE_SLUG}.html"
+  },
+  
 ];
 /* ═══════════════════════════════════════════════════════════════
    END OF SITE CONFIGURATION
