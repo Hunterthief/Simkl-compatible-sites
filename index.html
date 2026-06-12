@@ -569,18 +569,32 @@ function getParams() {
   const p = {};
 
   const aliases = {
-    t: 'TITLE',
-    r: 'TITLE_ROMANJI',
-    e: 'NEXT_E',
-    s: 'NEXT_S',
-    y: 'YEAR',
-    a: 'ANILIST',
-    m: 'TMDB',
-    i: 'IMDB',
-    k: 'KITSU',
-    v: 'TVDB',
-    type: 'TYPE'
-  };
+  t: "TITLE",
+  r: "TITLE_ROMANJI",
+  y: "YEAR",
+
+  s: "S",
+  e: "E",
+
+  ns: "NEXT_S",
+  ne: "NEXT_E",
+
+  type: "TYPE",
+  at: "ANIME_TYPE",
+
+  sid: "SIMKL_ID",
+
+  im: "IMDB",
+  tm: "TMDB",
+  ki: "KITSU",
+  al: "ANILIST",
+
+  tv: "TVDB",
+  tvs: "TVDB_SLUG",
+  tve: "TVDB_EP_ID",
+
+  mal: "IMDB_MAL"
+};
 
   new URLSearchParams(window.location.search).forEach((value, key) => {
     p[aliases[key] || key] = value;
