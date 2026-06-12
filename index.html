@@ -377,7 +377,37 @@ const SITES = [
 
   /* ── ANIME SPECIALISTS ─────────────────────────────────── */
   // Add your anime-only sites here, in your preferred order.
-  // Example (replace with your actual sites):
+  
+  {
+    name: "Just4Anime",
+    tags: ["anime"],
+    url: "https://just4anime.online/watch/{ANILIST}?n={NEXT_E}&server=jin&type=sub"
+  },
+  
+  {
+    name: "AniStream",
+    tags: ["anime"],
+    url: "https://anistream.one/watch/{TITLE_SLUG}-{ANILIST}-episode-{NEXT_E}"
+  },
+  
+  {
+    name: "AniVibe",
+    tags: ["anime"],
+    url: "https://anivibe.to/watch/{TITLE_SLUG}-season-{NEXT_S}-episode-{NEXT_E}"
+  },
+  
+  {
+    name: "Luna",
+    tags: ["anime"],
+    url: "https://luna-stream.me/anime/{TITLE_SLUG}-{ANILIST}/ep{NEXT_E}/sub?host=Zenith"
+  },
+  
+  {
+    name: "Fanime",
+    tags: ["anime"],
+    url: "https://fanime.tv/watch/{ANILIST}/{TITLE_SLUG}?server=bonk&subtype=sub&eps={NEXT_E}"
+  },
+  
   {
     name: "MKissa",
     tags: ["anime"],
@@ -389,6 +419,7 @@ const SITES = [
     tags: ["anime"],
     url: "https://anidb.app/browse?q={TITLE}"
   },
+  
   /* ── MOVIE SPECIALISTS ─────────────────────────────────── */
   /*{
     name: "MovieExample1",
@@ -415,7 +446,13 @@ const SITES = [
     tags: ["movies", "series"],
     url: "https://dulo.tv/#/{TYPE}/{TMDB}"
   },
-
+  
+  {
+    name: "NOXX",
+    tags: ["movies", "series"],
+    url: "https://noxx.to/{TYPE}/{TITLE_SLUG}/{NEXT_S}/{NEXT_E}"
+  },
+  
   /* ── GENERALISTS (all three — shown at bottom always) ──── */
   
   {
