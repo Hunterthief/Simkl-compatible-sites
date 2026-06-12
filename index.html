@@ -459,15 +459,134 @@ const SITES = [
 
 
 /* ── Param helpers ────────────────────────────────────────── */
+
+function slugify(str) {
+  return str
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+function underscoreify(str) {
+  return slugify(str).replace(/-/g, '_');
+}
+
+function plusify(str) {
+  return encodeURIComponent(str).replace(/%20/g, '+');
+}
+
+function pad2(value) {
+  return String(value).padStart(2, '0');
+}
+
+function expandParams(p) {
+
+  /* TITLE */
+  if (p.TITLE) {
+    p.TITLE_PLUS       ||= plusify(p.TITLE);
+    p.TITLE_SLUG       ||= slugify(p.TITLE);
+    p.TITLE_UNDERSCORE ||= underscoreify(p.TITLE);
+  }
+
+  /* ROMANJI */
+  if (p.TITLE_ROMANJI) {
+    p.TITLE_ROMANJI_PLUS ||= plusify(p.TITLE_ROMANJI);
+    p.TITLE_ROMANJI_SLUG ||= slugify(p.TITLE_ROMANJI);
+  }
+
+  /* EP TITLE */
+  if (p.EP_TITLE) {
+    p.EP_TITLE_PLUS       ||= plusify(p.EP_TITLE);
+    p.EP_TITLE_SLUG       ||= slugify(p.EP_TITLE);
+    p.EP_TITLE_UNDERSCORE ||= underscoreify(p.EP_TITLE);
+  }
+
+  /* CURRENT SEASON */
+  if (p.S) {
+    p.SS          ||= pad2(p.S);
+    p.S01         ||= pad2(p.S);
+    p.SEASON1     ||= p.S;
+    p.SEASON_DASH ||= `season-${p.S}`;
+  }
+
+  /* CURRENT EPISODE */
+  if (p.E) {
+    p.EE            ||= pad2(p.E);
+    p.E01           ||= pad2(p.E);
+    p.EPISODE1      ||= p.E;
+    p.EPISODE_DASH  ||= `episode-${p.E}`;
+  }
+
+  /* NEXT SEASON */
+  if (p.NEXT_S) {
+    p.NEXT_SS  ||= pad2(p.NEXT_S);
+    p.NEXT_S01 ||= pad2(p.NEXT_S);
+  }
+
+  /* NEXT EPISODE */
+  if (p.NEXT_E) {
+    p.NEXT_EE  ||= pad2(p.NEXT_E);
+    p.NEXT_E01 ||= pad2(p.NEXT_E);
+  }
+
+  /* TYPE DERIVATIVES */
+  const type = (p.TYPE || '').toLowerCase();
+
+  switch (type) {
+
+    case 'anime':
+      p.TYPES              ||= 'anime';
+      p.TYPE_SHOW          ||= 'show';
+      p.TYPE_SHOWS         ||= 'shows';
+      p.TYPE_SERIES_MOVIE  ||= 'series';
+      p.TYPE_SERIES_MOVIES ||= 'series';
+      break;
+
+    case 'movie':
+      p.TYPES              ||= 'movies';
+      p.TYPE_SHOW          ||= 'movie';
+      p.TYPE_SHOWS         ||= 'movies';
+      p.TYPE_SERIES_MOVIE  ||= 'movie';
+      p.TYPE_SERIES_MOVIES ||= 'movies';
+      break;
+
+    case 'tv':
+      p.TYPES              ||= 'shows';
+      p.TYPE_SHOW          ||= 'show';
+      p.TYPE_SHOWS         ||= 'shows';
+      p.TYPE_SERIES_MOVIE  ||= 'series';
+      p.TYPE_SERIES_MOVIES ||= 'series';
+      break;
+  }
+
+  return p;
+}
+
 function getParams() {
   const p = {};
-  new URLSearchParams(window.location.search).forEach((v, k) => { p[k] = v; });
 
-  // URLSearchParams decodes + as space; restore for "plus" variants
-  ['TITLE_PLUS', 'TITLE_ROMANJI_PLUS', 'EP_TITLE_PLUS'].forEach(k => {
-    if (p[k]) p[k] = p[k].replace(/ /g, '+');
+  const aliases = {
+    t: 'TITLE',
+    r: 'TITLE_ROMANJI',
+    e: 'NEXT_E',
+    s: 'NEXT_S',
+    y: 'YEAR',
+    a: 'ANILIST',
+    m: 'TMDB',
+    i: 'IMDB',
+    k: 'KITSU',
+    v: 'TVDB',
+    type: 'TYPE'
+  };
+
+  new URLSearchParams(window.location.search).forEach((value, key) => {
+    p[aliases[key] || key] = value;
   });
-  return p;
+
+  return expandParams(p);
 }
 
 /* ── URL template resolver ────────────────────────────────── */
