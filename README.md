@@ -1,4 +1,4 @@
-# Simkl-compatible-sites Watch Matrix
+# Simkl compatible sites Watch Matrix
 
 A personal streaming hub for SIMKL's "Watch Now On" feature.  
 Opens with media data pre-loaded from SIMKL. Shows specialist sites first, generalists second.
