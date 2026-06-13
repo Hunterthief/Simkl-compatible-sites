@@ -517,11 +517,17 @@ const SITES = [
   },
   
   /* ── MOVIE SPECIALISTS ─────────────────────────────────── */
-  /*{
-    name: "MovieExample1",
+  {
+    name: "AZMovies",
     tags: ["movies"],
-    url: "https://example-movies.com/movie/{TITLE_SLUG}/{TMDB}"
-  },*/
+    url: "https://azmovies.to/search?q={TITLE_PLUS}"
+  },
+
+  {
+    name: "Fsharetv",
+    tags: ["movies"],
+    url: "https://fsharetv.co/search?q={TITLE}"
+  },
 
   /* ── SERIES SPECIALISTS ────────────────────────────────── */
   /*{
@@ -544,9 +550,21 @@ const SITES = [
   },
   
   {
+    name: "watchflix (uses tv for anime)",
+    tags: ["movies", "series"],
+    url: "https://watchflix.to/{TYPE}/{TMDB}"
+  },
+  
+  {
     name: "NOXX",
     tags: ["movies", "series"],
     url: "https://noxx.to/{TYPE}/{TITLE_SLUG}/{NEXT_S}/{NEXT_E}"
+  },
+
+  {
+    name: "YesMovies",
+    tags: ["movies", "series"],
+    url: "https://ww2.yesmovies.ag/search.html?q={TITLE_PLUS}"
   },
   
   /* ── GENERALISTS (all three — shown at bottom always) ──── */
@@ -654,9 +672,63 @@ const SITES = [
   },
   
   {
+    name: "Nepu",
+    tags: ["movies", "series", "anime"],
+    url: "https://nepu.to/search/{TITLE}"
+  },
+  
+  {
+    name: "Apexmovies",
+    tags: ["movies", "series", "anime"],
+    url: "https://apexmovies.net/{TITLE_SLUG}"
+  },
+  
+  {
+    name: "MovieBox",
+    tags: ["movies", "series", "anime"],
+    url: "https://themoviebox.org/newWeb/searchResult?keyword={TITLE_PLUS}"
+  },
+  
+  {
     name: "m4uhd",
     tags: ["movies", "series", "anime"],
     url: "https://ww1.m4uhd.to/search/{TITLE_SLUG}.html"
+  },
+  
+  {
+    name: "Bflix",
+    tags: ["movies", "series", "anime"],
+    url: "https://bflix.sh/search?keyword={TITLE_PLUS}"
+  },
+  
+  {
+    name: "Onionplay",
+    tags: ["movies", "series", "anime"],
+    url: "https://onionplay.st/search/{TITLE_PLUS}"
+  },
+  
+  {
+    name: "MovieNestBD",
+    tags: ["movies", "series", "anime"],
+    url: "https://movienestbd.pics/search?q={TITLE}"
+  },
+  
+  {
+    name: "ShowBox",
+    tags: ["movies", "series", "anime"],
+    url: "https://www.showbox.media/search?keyword={TITLE_PLUS}"
+  },
+  
+  {
+    name: "Cinegram",
+    tags: ["movies", "series", "anime"],
+    url: "https://cinegram.tv/index.php?menu=search&query={TITLE_SLUG}"
+  },
+  
+  {
+    name: "LeVidia",
+    tags: ["movies", "series", "anime"],
+    url: "https://www.levidia.ch/search.php?q={TITLE_PLUS}&submit.x=0&submit.y=0"
   },
   
 ];
