@@ -517,6 +517,7 @@ const SITES = [
   },
   
   /* ── MOVIE SPECIALISTS ─────────────────────────────────── */
+  
   {
     name: "AZMovies",
     tags: ["movies"],
@@ -537,12 +538,6 @@ const SITES = [
   },*/
 
   /* ── MOVIES + SERIES (anime not supported) ─────────────── */
-  /* {
-    name: "OnoFlix",
-    tags: ["movies", "series"],
-    url: "https://onoflix.live/en/watch/{TYPE_SERIES_MOVIE}/{TITLE_SLUG}/{TMDB}?episode={NEXT_E}&source=VidNest"
-  }, */
-  
   {
     name: "dulo.tv (uses Anilist codes for anime)",
     tags: ["movies", "series"],
@@ -567,12 +562,24 @@ const SITES = [
     url: "https://ww2.yesmovies.ag/search.html?q={TITLE_PLUS}"
   },
   
+  {
+    name: "Cinezo (uses tv for anime)",
+    tags: ["movies", "series"],
+    url: "https://www.cinezo.net/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
+  },
+  
   /* ── GENERALISTS (all three — shown at bottom always) ──── */
   
   {
     name: "Gaiaflix (support malsync)",
     tags: ["movies", "series", "anime"],
     url: "https://gaiaflix.live/detail/{TMDB}?type={TYPE}"
+  },
+  
+  {
+    name: "67movies",
+    tags: ["movies", "series", "anime"],
+    url: "https://67movies.net/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
   },
   
   {
