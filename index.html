@@ -1023,7 +1023,7 @@ function render() {
 
   /* ── Extract display data ── */
   const type    = getType(params);
-  const typeKey = type === 'tv' ? 'series' : type;
+  const typeKey = type === 'movie' ? 'movies' : (type === 'tv' ? 'series' : type);
 
   const title    = params.TITLE || '';
   const romanji  = (type === 'anime' && params.TITLE_ROMANJI && params.TITLE_ROMANJI !== params.TITLE)
