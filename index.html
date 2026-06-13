@@ -363,10 +363,12 @@
    TYPE STRINGS:
      {TYPE}              "tv" / "anime" / "movie"
      {TYPES}             "shows" / "anime" / "movies"
-     {TYPE_SHOW}         "show" / "movie"
-     {TYPE_SHOWS}        "shows" / "movies"
-     {TYPE_SERIES_MOVIE} "series" / "movie"
+     {TYPE_SHOW}         "show" / "movie"       (outputs "show" for anime)
+     {TYPE_SHOWS}        "shows" / "movies"     (outputs "shows" for anime)
+     {TYPE_SERIES_MOVIE} "series" / "movie"     (outputs "series" for anime)
      {TYPE_SERIES_MOVIES}"series" / "movies"
+     {TYPE_TV}           "tv" / "movie" / "tv"  (use when site labels anime as "tv")
+     {TYPE_SERIES}       "series" / "movie"     (alias for TYPE_SERIES_MOVIE)
      {ANIME_TYPE}        "tv" / "movie" / "ova" / "special"  (anime only)
 
    IDs:
@@ -560,7 +562,7 @@ const SITES = [
   {
     name: "watchflix (uses tv for anime)",
     tags: ["movies", "series"],
-    url: "https://watchflix.to/{TYPE}/{TMDB}"
+    url: "https://watchflix.to/{TYPE_TV}/{TMDB}"
   },
   
   {
@@ -578,7 +580,7 @@ const SITES = [
   {
     name: "Cinezo (uses tv for anime)",
     tags: ["movies", "series"],
-    url: "https://www.cinezo.net/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
+    url: "https://www.cinezo.net/watch/{TYPE_TV}/{TMDB}/{NEXT_S}/{NEXT_E}"
   },
   
   /* ── GENERALISTS (all three — shown at bottom always) ──── */
@@ -901,6 +903,8 @@ function expandParams(p) {
       p.TYPE_SHOWS         ||= 'shows';
       p.TYPE_SERIES_MOVIE  ||= 'series';
       p.TYPE_SERIES_MOVIES ||= 'series';
+      p.TYPE_TV            ||= 'tv';
+      p.TYPE_SERIES        ||= 'series';
       break;
 
     case 'movie':
@@ -909,6 +913,8 @@ function expandParams(p) {
       p.TYPE_SHOWS         ||= 'movies';
       p.TYPE_SERIES_MOVIE  ||= 'movie';
       p.TYPE_SERIES_MOVIES ||= 'movies';
+      p.TYPE_TV            ||= 'movie';
+      p.TYPE_SERIES        ||= 'movie';
       break;
 
     case 'tv':
@@ -917,6 +923,8 @@ function expandParams(p) {
       p.TYPE_SHOWS         ||= 'shows';
       p.TYPE_SERIES_MOVIE  ||= 'series';
       p.TYPE_SERIES_MOVIES ||= 'series';
+      p.TYPE_TV            ||= 'tv';
+      p.TYPE_SERIES        ||= 'series';
       break;
   }
 
@@ -966,7 +974,7 @@ const RAW_SAFE = new Set([
   'TITLE_SLUG','TITLE_UNDERSCORE','TITLE_PLUS','TITLE_ROMANJI_SLUG','TITLE_ROMANJI_PLUS',
   'EP_TITLE_SLUG','EP_TITLE_UNDERSCORE','EP_TITLE_PLUS',
   'TVDB_SLUG','SEASON_DASH','EPISODE_DASH',
-  'TYPE','TYPES','TYPE_SHOW','TYPE_SHOWS','TYPE_SERIES_MOVIE','TYPE_SERIES_MOVIES','ANIME_TYPE',
+  'TYPE','TYPES','TYPE_SHOW','TYPE_SHOWS','TYPE_SERIES_MOVIE','TYPE_SERIES_MOVIES','TYPE_TV','TYPE_SERIES','ANIME_TYPE',
   'S','SS','S01','SEASON1','E','EE','E01','EPISODE1',
   'NEXT_S','NEXT_SS','NEXT_S01','NEXT_E','NEXT_EE','NEXT_E01',
   'YEAR','TMDB','IMDB','ANILIST','SIMKL_ID','KITSU','TVDB','TVDB_EP_ID','IMDB_MAL'
@@ -1115,7 +1123,7 @@ function render() {
     ['TITLE','TITLE_PLUS','TITLE_SLUG','TITLE_UNDERSCORE'],
     ['TITLE_ROMANJI','TITLE_ROMANJI_PLUS','TITLE_ROMANJI_SLUG','YEAR'],
     ['NEXT_S','NEXT_SS','NEXT_S01','NEXT_E','NEXT_EE','NEXT_E01'],
-    ['TYPE','TYPES','TYPE_SHOW','TYPE_SHOWS','TYPE_SERIES_MOVIE','TYPE_SERIES_MOVIES','ANIME_TYPE'],
+    ['TYPE','TYPES','TYPE_SHOW','TYPE_SHOWS','TYPE_SERIES_MOVIE','TYPE_SERIES_MOVIES','TYPE_TV','TYPE_SERIES','ANIME_TYPE'],
     ['SIMKL_ID','IMDB','TMDB','KITSU','ANILIST','TVDB','TVDB_SLUG','TVDB_EP_ID','IMDB_MAL'],
   ];
   const dbRows = ALL_PARAMS.flat().map(k => {
