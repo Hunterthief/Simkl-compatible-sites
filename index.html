@@ -560,12 +560,6 @@ const SITES = [
   },
   
   {
-    name: "watchflix (uses tv for anime)",
-    tags: ["movies", "series"],
-    url: "https://watchflix.to/{TYPE_TV}/{TMDB}"
-  },
-  
-  {
     name: "NOXX",
     tags: ["movies", "series"],
     url: "https://noxx.to/{TYPE}/{TITLE_SLUG}/{NEXT_S}/{NEXT_E}"
@@ -575,12 +569,6 @@ const SITES = [
     name: "YesMovies",
     tags: ["movies", "series"],
     url: "https://ww2.yesmovies.ag/search.html?q={TITLE_PLUS}"
-  },
-  
-  {
-    name: "Cinezo (uses tv for anime)",
-    tags: ["movies", "series"],
-    url: "https://www.cinezo.net/watch/{TYPE_TV}/{TMDB}/{NEXT_S}/{NEXT_E}"
   },
   
   /* ── GENERALISTS (all three — shown at bottom always) ──── */
@@ -637,6 +625,18 @@ const SITES = [
     name: "Screenscape",
     tags: ["movies", "series", "anime"],
     url: "https://screenscape.me/watch/{TYPE}/{TMDB}/{NEXT_S}/{NEXT_E}"
+  },
+
+  {
+    name: "watchflix",
+    tags: ["movies", "series", "anime"],
+    url: "https://watchflix.to/{TYPE_TV}/{TMDB}"
+  },
+  
+  {
+    name: "Cinezo",
+    tags: ["movies", "series", "anime"],
+    url: "https://www.cinezo.net/watch/{TYPE_TV}/{TMDB}/{NEXT_S}/{NEXT_E}"
   },
   
   {
