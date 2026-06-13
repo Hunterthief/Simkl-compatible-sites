@@ -116,6 +116,8 @@ Type strings:
   {TYPE_SHOWS}         "shows" / "movies"
   {TYPE_SERIES_MOVIE}  "series" / "movie"
   {TYPE_SERIES_MOVIES} "series" / "movies"
+  {TYPE_TV}            "tv" / "movie" 
+  {TYPE_SERIES}        "series" / "movie"
   {ANIME_TYPE}         "tv" / "movie" / "ova" / "special"  ← anime only
 
 IDs:
